@@ -1,0 +1,63 @@
+/* ================================
+STYLE UTAMA DAPUR NAYLA
+================================ */
+
+body {
+font-family: Arial, sans-serif;
+margin: 0;
+padding: 0;
+background-color: #fff8f0;
+color: #333;
+line-height: 1.6;
+}
+
+/* ================================
+HEADER
+================================ */
+
+header {
+background-color: #8b4513;
+color: white;
+text-align: center;
+padding: 35px 20px;
+}
+
+header h1 {
+margin: 0;
+font-size: 36px;
+}
+
+header p {
+margin-top: 10px;
+font-size: 17px;
+}
+
+/* ================================
+NAVIGASI
+================================ */
+
+nav {
+background-color: #5c2e0b;
+text-align: center;
+padding: 15px 10px;
+}
+
+nav a {
+color: white;
+text-decoration: none;
+margin: 0 12px;
+font-weight: bold;
+display: inline-block;
+}
+
+nav a:hover {
+color: #ffd9a0;
+text-decoration: underline;
+}
+
+/* ================================
+KONTEN UTAMA
+================================ */
+
+main {
+width: 80%;
