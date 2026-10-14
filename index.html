@@ -1,90 +1,511 @@
 <!DOCTYPE html>
-
-<html>
-
+<html lang="id">
 <head>
-    <title>Dapur Nayla - Beranda</title>
-    <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coding Academy</title>
+
+    <style>
+        
+     
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background: #fff5f8;
+    color: #4a3540;
+}
+
+header {
+    background: #fce7f3;
+    color: #831843;
+    padding: 22px 8%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+header h1 {
+    font-size: 26px;
+}
+
+nav {
+    display: flex;
+    gap: 10px;
+}
+
+nav button {
+    background: white;
+    color: #be185d;
+    border: 1px solid #f9a8d4;
+    padding: 10px 16px;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+nav button:hover,
+nav button.active {
+    background: #ec4899;
+    color: white;
+    border-color: #ec4899;
+}
+
+.hero {
+    background: linear-gradient(135deg, #f9a8d4, #fce7f3, #fbcfe8);
+    color: #831843;
+    padding: 55px 8%;
+    text-align: center;
+}
+
+.hero h2 {
+    font-size: 34px;
+    margin-bottom: 15px;
+}
+
+.hero p {
+    line-height: 1.7;
+}
+
+main {
+    padding: 35px 8%;
+}
+
+.page {
+    display: none;
+}
+
+.page.active {
+    display: block;
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 28px;
+    color: #9d174d;
+}
+
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 22px;
+}
+
+.card {
+    background: white;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 5px 18px rgba(190, 24, 93, 0.10);
+    border: 1px solid #fce7f3;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 9px 22px rgba(190, 24, 93, 0.16);
+}
+
+.card img {
+    width: 100%;
+    height: 190px;
+    object-fit: cover;
+}
+
+.card-content {
+    padding: 18px;
+}
+
+.card-content h3 {
+    color: #db2777;
+    margin-bottom: 10px;
+}
+
+.card-content p {
+    line-height: 1.7;
+    color: #6b5561;
+}
+
+.form-container {
+    max-width: 650px;
+    margin: auto;
+    background: white;
+    padding: 30px;
+    border-radius: 18px;
+    box-shadow: 0 5px 22px rgba(190, 24, 93, 0.10);
+    border: 1px solid #fce7f3;
+}
+
+.form-container h2 {
+    text-align: center;
+    color: #9d174d;
+    margin-bottom: 25px;
+}
+
+.form-group {
+    margin-bottom: 17px;
+}
+
+label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 8px;
+    color: #831843;
+}
+
+input,
+select,
+textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #f3c4d9;
+    border-radius: 8px;
+    font-size: 15px;
+    background: #fffafd;
+    color: #4a3540;
+    outline: none;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+    border-color: #ec4899;
+    box-shadow: 0 0 0 3px rgba(236, 72, 153, 0.12);
+}
+
+textarea {
+    resize: vertical;
+    min-height: 90px;
+}
+
+.radio-group {
+    display: flex;
+    gap: 20px;
+}
+
+.radio-group label {
+    font-weight: normal;
+    display: flex;
+    align-items: center;
+    gap: 7px;
+}
+
+.radio-group input {
+    width: auto;
+    accent-color: #db2777;
+}
+
+.btn {
+    width: 100%;
+    padding: 13px;
+    background: #ec4899;
+    color: white;
+    border: none;
+    border-radius: 25px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn:hover {
+    background: #be185d;
+    box-shadow: 0 4px 12px rgba(190, 24, 93, 0.2);
+}
+
+#hasil {
+    display: none;
+    margin-top: 25px;
+    padding: 22px;
+    background: #fff1f7;
+    border: 1px solid #f9a8d4;
+    border-radius: 12px;
+    overflow-wrap: anywhere;
+}
+
+#hasil h3 {
+    color: #be185d;
+    margin-bottom: 15px;
+}
+
+#hasil p {
+    margin: 10px 0;
+    line-height: 1.6;
+}
+
+footer {
+    background: #831843;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    margin-top: 35px;
+}
+
+@media (max-width: 600px) {
+    header {
+        justify-content: center;
+        text-align: center;
+    }
+
+    .hero h2 {
+        font-size: 27px;
+    }
+
+    main {
+        padding: 25px 5%;
+    }
+
+    .form-container {
+        padding: 20px;
+    }
+
+    nav {
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+}
+
+    </style>
 </head>
 
 <body>
 
-<header>
-    <h1>Dapur Nayla</h1>
-    <p>Tempat makan sederhana dengan pilihan menu yang enak dan terjangkau.</p>
-</header>
+    <header>
+        <h1>💻 Coding Academy</h1>
 
-<nav>
-    <a href="dapurnayla.html">Beranda</a>
-    <a href="menu.html">Menu</a>
-    <a href="pemesanan.html">Cara Pemesanan</a>
-    <a href="informasi.html">Informasi</a>
-    <a href="tentang.html">Tentang Kami</a>
-    <a href="galery.html">Gallery</a>
-</nav>
+        <nav>
+            <button id="btnGallery" class="active"
+                onclick="pindahHalaman('gallery')">Gallery</button>
 
-<main>
+            <button id="btnDaftar"
+                onclick="pindahHalaman('pendaftaran')">Pendaftaran</button>
+        </nav>
+    </header>
 
-```
-<h2>Selamat Datang di Dapur Nayla</h2>
+    <section class="hero">
+        <h2>Belajar Coding, Raih Masa Depan!</h2>
+        <p>
+            Tingkatkan kemampuan teknologi bersama Coding Academy.
+            Belajar pemrograman dari dasar hingga membuat proyek sendiri.
+        </p>
+    </section>
 
-<p>
-    Dapur Nayla menyediakan berbagai makanan dan minuman
-    dengan harga yang terjangkau. Restoran ini cocok untuk
-    makan bersama keluarga, teman, atau sekadar bersantai.
-</p>
+    <main>
 
-<h2>Menu Pilihan</h2>
+        <!-- TAMPILAN GALLERY -->
+        <section id="gallery" class="page active">
+            <h2 class="section-title">Gallery Kegiatan Pelatihan</h2>
 
-<p>
-    Nikmati berbagai pilihan menu mulai dari makanan,
-    minuman, hingga dessert.
-</p>
+            <div class="gallery">
 
-<ul>
-    <li>Sate Taichan</li>
-    <li>Rice Bowl Teriyaki</li>
-    <li>Chicken Katsu</li>
-    <li>Es Teh Manis</li>
-    <li>Es Jeruk</li>
-    <li>Es Alpukat</li>
-</ul>
+                <div class="card">
+                    <img
+                        src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=800&q=80"
+                        alt="Kegiatan belajar coding">
+                    <div class="card-content">
+                        <h3>Pelatihan Dasar Coding</h3>
+                        <p>
+                            Peserta mempelajari dasar pemrograman,
+                            logika algoritma, dan cara menulis kode
+                            dengan bimbingan instruktur.
+                        </p>
+                    </div>
+                </div>
 
-<h2>Tentang Dapur Nayla</h2>
+                <div class="card">
+                    <img
+                        src="https://images.unsplash.com/photo-1498050108023-c5249f4df085"
+                        alt="Belajar pemrograman bersama">
+                    <div class="card-content">
+                        <h3>Belajar Web Development</h3>
+                        <p>
+                            Peserta belajar membuat website menggunakan
+                            HTML, CSS, dan JavaScript secara bertahap
+                            melalui latihan langsung.
+                        </p>
+                    </div>
+                </div>
 
-<p>
-    Dapur Nayla adalah restoran sederhana yang menyediakan
-    berbagai makanan dan minuman dengan harga yang terjangkau.
-    Kami ingin memberikan tempat makan yang nyaman untuk
-    pelanggan yang datang bersama keluarga maupun teman.
-</p>
+                <div class="card">
+                    <img
+                        src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=800&q=80"
+                        alt="Kerja sama tim teknologi">
+                    <div class="card-content">
+                        <h3>Proyek Tim</h3>
+                        <p>
+                            Peserta bekerja sama membuat proyek teknologi,
+                            berdiskusi, dan menyelesaikan masalah
+                            menggunakan kemampuan pemrograman.
+                        </p>
+                    </div>
+                </div>
 
-<h2>Informasi Singkat</h2>
+            </div>
+        </section>
 
-<p>
-    <b>Lokasi:</b> Jl. Hutama Karya, Serpong<br>
-    <b>Jam Operasional:</b> Senin - Jumat 09.00 - 21.00 WIB<br>
-    <b>Weekend:</b> Sabtu - Minggu 09.00 - 23.00 WIB
-</p>
+        <!-- TAMPILAN PENDAFTARAN -->
+        <section id="pendaftaran" class="page">
+            <div class="form-container">
 
-<h2>Gallery Promosi</h2>
+                <h2>Formulir Pendaftaran</h2>
 
-<p>
-    Ingin melihat foto makanan dan video promosi Dapur Nayla?
-    Silakan kunjungi halaman Gallery.
-</p>
+                <form id="formDaftar">
 
-<p>
-    <a href="galery.html">Lihat Gallery Promosi</a>
-</p>
-```
+                    <div class="form-group">
+                        <label for="nik">NIK</label>
+                        <input type="text" id="nik" name="nik"
+                            inputmode="numeric" pattern="[0-9]{16}"
+                            maxlength="16" minlength="16"
+                            placeholder="Masukkan 16 digit NIK" required>
+                    </div>
 
-</main>
+                    <div class="form-group">
+                        <label for="nama">Nama Lengkap</label>
+                        <input type="text" id="nama" name="nama"
+                            placeholder="Masukkan nama lengkap" required>
+                    </div>
 
-<footer>
-    <p>&copy; 2026 Dapur Nayla. Kamu pasti balik lagi.</p>
-</footer>
+                    <div class="form-group">
+                        <label>Jenis Kelamin</label>
+                        <div class="radio-group">
+                            <label>
+                                <input type="radio" name="jk"
+                                    value="Laki-laki" required>
+                                Laki-laki
+                            </label>
+
+                            <label>
+                                <input type="radio" name="jk"
+                                    value="Perempuan">
+                                Perempuan
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="hp">Nomor HP</label>
+                        <input type="tel" id="hp" name="hp"
+                            inputmode="numeric" pattern="[0-9+ -]{8,16}"
+                            placeholder="Contoh: 081234567890" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="alamat">Alamat</label>
+                        <textarea id="alamat" name="alamat"
+                            placeholder="Masukkan alamat lengkap"
+                            required></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="bahasa">
+                            Bahasa Pemrograman yang Diminati
+                        </label>
+
+                        <select id="bahasa" name="bahasa" required>
+                            <option value="">-- Pilih Bahasa --</option>
+                            <option value="Python">Python</option>
+                            <option value="Java">Java</option>
+                            <option value="JavaScript">JavaScript</option>
+                            <option value="PHP">PHP</option>
+                            <option value="C++">C++</option>
+                        </select>
+                    </div>
+
+                    <button type="submit" class="btn">
+                        Simpan Pendaftaran
+                    </button>
+
+                </form>
+
+                <!-- HASIL PENDAFTARAN -->
+                <div id="hasil">
+                    <h3>Data Pendaftaran Berhasil Disimpan!</h3>
+                    <div id="detailHasil"></div>
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Coding Academy | Belajar Coding Bersama</p>
+    </footer>
+
+    <script>
+        function pindahHalaman(halaman) {
+            document.querySelectorAll('.page').forEach(function (page) {
+                page.classList.remove('active');
+            });
+
+            document.getElementById(halaman).classList.add('active');
+
+            document.getElementById('btnGallery')
+                .classList.toggle('active', halaman === 'gallery');
+
+            document.getElementById('btnDaftar')
+                .classList.toggle('active', halaman === 'pendaftaran');
+
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        document.getElementById('formDaftar')
+            .addEventListener('submit', function (event) {
+
+            event.preventDefault();
+
+            const yakin = confirm(
+                'Apakah Anda sudah yakin untuk menyimpan?'
+            );
+
+            if (yakin) {
+                const nik = document.getElementById('nik').value;
+                const nama = document.getElementById('nama').value;
+                const jk = document.querySelector(
+                    'input[name="jk"]:checked'
+                ).value;
+                const hp = document.getElementById('hp').value;
+                const alamat = document.getElementById('alamat').value;
+                const bahasa = document.getElementById('bahasa').value;
+
+                const data = [
+                    ['NIK', nik],
+                    ['Nama Lengkap', nama],
+                    ['Jenis Kelamin', jk],
+                    ['Nomor HP', hp],
+                    ['Alamat', alamat],
+                    ['Bahasa Pemrograman', bahasa]
+                ];
+
+                const detail = document.getElementById('detailHasil');
+                detail.replaceChildren();
+
+                data.forEach(function (item) {
+                    const p = document.createElement('p');
+                    const label = document.createElement('strong');
+
+                    label.textContent = item[0] + ': ';
+                    p.appendChild(label);
+                    p.appendChild(document.createTextNode(item[1]));
+                    detail.appendChild(p);
+                });
+
+                document.getElementById('hasil').style.display = 'block';
+
+                document.getElementById('hasil')
+                    .scrollIntoView({ behavior: 'smooth' });
+
+            } else {
+                alert('Penyimpanan dibatalkan.');
+            }
+        });
+    </script>
 
 </body>
-
 </html>
